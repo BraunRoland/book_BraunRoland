@@ -39,7 +39,28 @@ namespace book
             Console.Write("Add meg a Könyv kiadási évét: ");
             releaseYear = int.Parse(Console.ReadLine());
             Console.WriteLine("Sikeres módósítás!");
-            this.ToString();
+            Console.WriteLine(this);
+        }
+
+        public void GetBookByTitle(Book[] books, string title)
+        {
+            bool vane = false;
+            Console.WriteLine($"keresett című könyv: {title}");
+            foreach(var book in books)
+            {
+                if (book.Title == title)
+                {
+                    Console.WriteLine("Van ilyen című könyv! Adatai: ");
+                    Console.WriteLine(this);
+                    vane = true;
+                    break;
+                }
+            }
+            if (vane == false)
+            {
+                Console.WriteLine("Nincs ilyen című könyv!");
+            }
+            
         }
 
         public override string ToString()
